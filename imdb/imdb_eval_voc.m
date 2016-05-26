@@ -70,11 +70,12 @@ prec = [];
 ap = 0;
 ap_auc = 0;
 
-do_eval = (str2num(year) <= 2007) | ~strcmp(test_set, 'test');
-if do_eval
+%do_eval = (str2num(year) <= 2007) | ~strcmp(test_set, 'test');
+if 1
   % Bug in VOCevaldet requires that tic has been called first
   tic;
   [recall, prec, ap] = VOCevaldet(VOCopts, res_id, cls, draw_curve);
+  DR = bag_DR_eval(VOCopts, res_id, cls, draw_curve);
   ap_auc = xVOCap(recall, prec);
 
   % force plot limits
