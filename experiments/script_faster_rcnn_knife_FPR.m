@@ -143,7 +143,7 @@ for j = 1:num_images
                 linewidth = 2 + min(max(score, 0), 1) * 2;
                 rectangle('Position', RectLTRB2LTWH(box), 'LineWidth', linewidth);
                 label = sprintf('%s : %.3f', 'knife', score);
-                text(double(box(1))+2, double(box(2)), label);
+                text(double(box(1))+2, double(box(2))-8, label);
             end
             if has_FP==1
                 print(gcf, '-djpeg', '-r0', ...
